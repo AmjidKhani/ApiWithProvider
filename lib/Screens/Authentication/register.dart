@@ -41,16 +41,16 @@ class _RegisterPageState extends State<RegisterPage> {
                 padding: const EdgeInsets.all(15),
                 child: Column(
                   children: [
-                    customTextField(
-                      title: 'First Name',
-                      controller: _firstName,
-                      hint: 'Enter your first name',
-                    ),
-                    customTextField(
-                      title: 'Last Name',
-                      controller: _lastName,
-                      hint: 'Enter your last name',
-                    ),
+                    // customTextField(
+                    //   title: 'First Name',
+                    //   controller: _firstName,
+                    //   hint: 'Enter your first name',
+                    // ),
+                    // customTextField(
+                    //   title: 'Last Name',
+                    //   controller: _lastName,
+                    //   hint: 'Enter your last name',
+                    // ),
 
                     customTextField(
                       title: 'Email',
@@ -80,18 +80,17 @@ class _RegisterPageState extends State<RegisterPage> {
                             status: Authvalue.isLoading,
                             context: context,
                             tap: (){
-                              if (_email.text.isEmpty||_password.text.isEmpty||_firstName.text.isEmpty||_lastName.text.isEmpty) {
+                              if (
+                              _email.text.isEmpty ||_password.text.isEmpty) {
                                 showMessage(
                                   context: context,
                                   message: "All Fields Are Required",
                                 );
                               }
                               Authvalue.registerUser(
-                                  firstName: _firstName.text.trim(),
-                                  lastName: _lastName.text.trim(),
                                   email: _email.text.trim(),
                                   password: _password.text.trim(),
-                                  context: context
+                               context: context
                               );
                                  },
                             text:"Register"

@@ -1,3 +1,4 @@
+import 'package:apiprovider/Provider/Databaserovider/db_provider.dart';
 import 'package:flutter/material.dart';
 
 import 'HomePage.dart';
@@ -29,13 +30,15 @@ class _SplashScreenState extends State<SplashScreen> {
   void navigate() {
     Future.delayed(const Duration(seconds: 3), () {
      PageNavigator(ctx: context).nextPage(page: LoginPage());
-      // DatabaseProvider().getToken().then((value) {
-      //   if (value == '') {
-      //     PageNavigator(ctx: context).nextPageOnly(page: const LoginPage());
-      //   } else {
-      //     PageNavigator(ctx: context).nextPageOnly(page: const HomePage());
-      //   }
-      // });
+     DatabaseProvider().getToken().then((value) {
+       if (value=="") {
+         PageNavigator(ctx: context).nextPageOnly(page: const LoginPage());
+       }
+       else{
+         PageNavigator(ctx: context).nextPageOnly(page: const HomePage());
+       }
+     });
+
     }
     );
   }

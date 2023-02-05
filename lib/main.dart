@@ -1,4 +1,5 @@
 import 'package:apiprovider/Provider/Auth/authentication.dart';
+import 'package:apiprovider/Provider/Databaserovider/db_provider.dart';
 import 'package:apiprovider/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,8 +15,11 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_)=>Auth()),
+        ChangeNotifierProvider(create: (_)=>DatabaseProvider()),
+
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
